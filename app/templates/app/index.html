@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bank</h1>
+    {% if loan_application %}
+        <p>Loan applications:</p>
+    {% endif %}
+    <ul>
+        {% for item in loan_application %}
+            <li><a href="{% url 'loan_app' item.pk %}">{{ item.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    {% if uniq_man_pk %}
+        <p>Uniq manufacturer's id:</p>
+        {% for u in uniq_man_pk %}
+            <h2>{{ u.uniq }}</h2>
+        {% endfor %}
+        <a href="{% url 'home' %}">back..</a>
+    {% endif %}
+
+</body>
+</html>
